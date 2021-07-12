@@ -6,5 +6,5 @@ repositories {
     mavenCentral()
 }
 dependencies {
-    implementation 'com.thegoate:testng:0.15.8.202107032201'
+    implementation  'org.testng:testng:7.4.0'
 }

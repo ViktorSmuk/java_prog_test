@@ -9,15 +9,17 @@ public class PointTests {
   @Test
   public void testDistance() {
 
-    Point p = new Point(4, 5, 7, 9);
-    Assert.assertEquals(p.distance(), 5);
+    Point p1 = new Point(4, 5);
+    Point p2 = new Point(7, 9);
+    Assert.assertEquals(p1.distance(p2), 5);
   }
 
   @Test
   public void testDistanceBoolean() {
 
-    Point p = new Point(4, 5, 7, 9);
-    boolean r = p.distance() >= 5;
+     Point p1 = new Point(4, 5);
+    Point p2 = new Point(7, 9);
+    boolean r = p1.distance(p2) >= 5;
     Assert.assertTrue(r);
   }
 
