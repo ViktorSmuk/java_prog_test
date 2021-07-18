@@ -15,7 +15,7 @@ public class ContactHelper extends HelperBase{
   }
 
   public void submitContactCreation() {
-    click(By.linkText("home page"));
+    click(By.linkText("home"));
   }
 
     public void fillContactForm(ContactDate contactDate) {
@@ -25,5 +25,28 @@ public class ContactHelper extends HelperBase{
     type(By.name("home"),contactDate.getHomePhone());
     type(By.name("email"),contactDate.getEmail());
     click(By.xpath("//div[@id='content']/form/input[21]"));
+  }
+
+  public void selectContact() {
+    click(By.name("selected[]"));
+  }
+
+  public void deleteSelectedContact() {
+    click(By.xpath("//input[@value='Delete']"));
+  }
+
+
+  public void acceptDeletionContact() {
+    wd.switchTo().alert().accept();
+  }
+
+  public void initContactModification() {
+    click(By.xpath("//img[@title='Edit']"));
+  }
+
+
+  public void submitContactModification() {
+    click(By.name("update"));
+
   }
 }
