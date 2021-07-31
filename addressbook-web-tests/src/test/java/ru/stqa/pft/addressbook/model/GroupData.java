@@ -5,10 +5,10 @@ public class GroupData {
   private final String footer;
   private final String name;
 
-  public GroupData(String header, String footer, String name) {
+  public GroupData( String name, String header, String footer) {
+    this.name = name;
     this.header = header;
     this.footer = footer;
-    this.name = name;
   }
 
   public String getHeader() {
