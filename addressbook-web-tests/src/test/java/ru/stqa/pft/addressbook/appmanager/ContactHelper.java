@@ -7,6 +7,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.ContactDate;
+import ru.stqa.pft.addressbook.model.GroupData;
 
 public class ContactHelper extends HelperBase {
 
@@ -15,15 +16,16 @@ public class ContactHelper extends HelperBase {
   }
 
   public void returnToContactPage() {
-    click(By.linkText("Logout"));
-  }
-
-  public void submitContactCreation() {
     click(By.linkText("home"));
   }
 
+  public void submitContactCreation() {
+    click(By.xpath("//input[@name='submit'][2]"));
+  }
+
+  public void addNewContact () {    click(By.linkText("add new")); }
+
   public void fillContactForm(ContactDate contactDate, boolean creation) {
-    click(By.linkText("add new"));
     type(By.name("firstname"), contactDate.getFirstname());
     type(By.name("lastname"), contactDate.getLastname());
     type(By.name("address"), contactDate.getAddress());
@@ -62,4 +64,13 @@ public class ContactHelper extends HelperBase {
   }
 
 
+  public boolean isThereAContact() {
+    return isElementPresent(By.name("selected[]"));
+  }
+
+  public void createContact(ContactDate contact,boolean creation) {
+    addNewContact();
+    fillContactForm(contact,creation);
+    returnToContactPage();
+  }
 }
