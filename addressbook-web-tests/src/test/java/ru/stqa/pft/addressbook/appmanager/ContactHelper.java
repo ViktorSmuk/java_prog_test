@@ -59,8 +59,8 @@ public class ContactHelper extends HelperBase {
     wd.findElement(By.cssSelector("div.msgbox"));
   }
 
-  public void initContactModification() {
-    click(By.xpath("//img[@title='Edit']"));
+  public void initContactModification(int index) {
+    click(By.xpath("//a[contains(@href,'"+ index +"')]/img[@title='Edit']"));
   }
 
 
