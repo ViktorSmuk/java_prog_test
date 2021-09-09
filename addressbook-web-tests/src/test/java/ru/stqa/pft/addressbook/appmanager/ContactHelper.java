@@ -1,14 +1,11 @@
 package ru.stqa.pft.addressbook.appmanager;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.ContactDate;
-import ru.stqa.pft.addressbook.model.GroupData;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -74,21 +71,36 @@ public class ContactHelper extends HelperBase {
     return isElementPresent(By.name("selected[]"));
   }
 
-  public void createContact(ContactDate contact, boolean creation) {
+  public void create(ContactDate contact, boolean creation) {
     addNewContact();
     fillContactForm(contact, creation);
     returnToContactPage();
   }
 
-  public List<ContactDate> getContactList() {
+  public void modify(int index, ContactDate contact) {
+   selectContact(index);
+   initContactModification(index);
+   fillContactForm(contact,false);
+   submitContactModification();
+   returnToContactPage();
+  }
+
+  public void delete(int index) {
+   selectContact(index);
+   deleteSelectedContact();
+   acceptDeletionContact();
+   returnToContactPage();
+  }
+
+
+  public List<ContactDate> list() {
     List<ContactDate> contacts = new ArrayList<ContactDate>();
     List<WebElement> elements = wd.findElements(By.xpath("//tr[@name = 'entry']"));
     for (WebElement element : elements) {
       String lastname = element.findElement(By.xpath("td[2]")).getText();
       String firstname = element.findElement(By.xpath("td[3]")).getText();
       int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
-      ContactDate contact = new ContactDate(id, firstname, lastname, null, null, null, null);
-      contacts.add(contact);
+      contacts.add(new ContactDate().withId(id).withFirstname(firstname).withLastname(lastname));
     }
     return contacts;
   }

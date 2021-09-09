@@ -11,7 +11,7 @@ public class GroupCreationTests extends TestBase {
 
   @Test
   public void testGroupCreation() throws Exception {
-    app.goTo().GroupPage();
+    app.goTo().groupPage();
     Groups before = app.group().all();
     GroupData group = new GroupData().withName("test2");
     app.group().create(group);

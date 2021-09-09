@@ -4,33 +4,13 @@ import java.util.Objects;
 
 public class ContactDate {
 
-  private int id;
-  private final String firstname;
-  private final String lastname;
-  private final String address;
-  private final String homePhone;
-  private final String email;
-  private final String group;
-
-  public ContactDate(int id, String firstname, String lastname, String address, String homePhone, String email, String group) {
-    this.id = id;
-    this.firstname = firstname;
-    this.lastname = lastname;
-    this.address = address;
-    this.homePhone = homePhone;
-    this.email = email;
-    this.group = group;
-  }
-
-  public ContactDate(String firstname, String lastname, String address, String homePhone, String email, String group) {
-    this.id = Integer.MAX_VALUE;
-    this.firstname = firstname;
-    this.lastname = lastname;
-    this.address = address;
-    this.homePhone = homePhone;
-    this.email = email;
-    this.group = group;
-  }
+  private int id = Integer.MAX_VALUE;;
+  private  String firstname;
+  private  String lastname;
+  private  String address;
+  private  String homePhone;
+  private  String email;
+  private  String group;
 
   public String getFirstname() {
     return firstname;
@@ -60,8 +40,39 @@ public class ContactDate {
     return id;
   }
 
-  public void setId(int id) {
+  public ContactDate withId(int id) {
     this.id = id;
+    return this;
+  }
+
+  public ContactDate withFirstname(String firstname) {
+    this.firstname = firstname;
+    return this;
+  }
+
+  public ContactDate withLastname(String lastname) {
+    this.lastname = lastname;
+    return this;
+  }
+
+  public ContactDate withAddress(String address) {
+    this.address = address;
+    return this;
+  }
+
+  public ContactDate withHomePhone(String homePhone) {
+    this.homePhone = homePhone;
+    return this;
+  }
+
+  public ContactDate withEmail(String email) {
+    this.email = email;
+    return this;
+  }
+
+  public ContactDate withGroup(String group) {
+    this.group = group;
+    return this;
   }
 
   @Override
