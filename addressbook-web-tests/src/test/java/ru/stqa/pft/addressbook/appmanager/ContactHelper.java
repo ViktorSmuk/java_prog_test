@@ -25,6 +25,10 @@ public class ContactHelper extends HelperBase {
     click(By.xpath("//input[@name='submit'][2]"));
   }
 
+  public int count() {
+    return wd.findElements(By.xpath("//img[@title='Edit']")).size();
+  }
+
   public void addNewContact() {
     click(By.linkText("add new"));
   }
