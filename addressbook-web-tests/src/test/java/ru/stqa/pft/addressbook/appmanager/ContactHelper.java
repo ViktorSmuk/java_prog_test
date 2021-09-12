@@ -38,6 +38,8 @@ public class ContactHelper extends HelperBase {
     type(By.name("address"), contactDate.getAddress());
     type(By.name("home"), contactDate.getHomePhone());
     type(By.name("email"), contactDate.getEmail());
+    attach(By.name("photo"), contactDate.getPhoto().getAbsoluteFile());
+
     if (creation) {
       new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactDate.getGroup());
     } else {
