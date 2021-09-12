@@ -8,10 +8,21 @@ public class ContactData {
   private  String firstname;
   private  String lastname;
   private  String address;
-  private  String homePhone;
   private  String email;
+  private  String email2;
+  private  String email3;
   private  String group;
+  private  String homePhone;
+  private String mobilePhone;
+  private String workPhone;
+  private String allPhones;
+  private String allEmails;
 
+
+
+  public String getAllPhones() {
+    return allPhones;
+  }
   public String getFirstname() {
     return firstname;
   }
@@ -32,8 +43,28 @@ public class ContactData {
     return email;
   }
 
+  public String getEmail2() {
+    return email2;
+  }
+
+  public String getEmail3() {
+    return email3;
+  }
+
   public String getGroup() {
     return group;
+  }
+
+  public String getMobilePhone() {
+    return mobilePhone;
+  }
+
+  public String getWorkPhone() {
+    return workPhone;
+  }
+
+  public String getAllEmails() {
+    return allEmails;
   }
 
   public int getId() {
@@ -75,6 +106,39 @@ public class ContactData {
     return this;
   }
 
+
+  public ContactData withMobilePhone(String mobile) {
+    this.mobilePhone = mobile;
+    return this;
+  }
+
+
+  public ContactData withWorkPhone (String work) {
+    this.workPhone = work;
+    return this;
+  }
+
+  public ContactData withAllPhones (String allPhone) {
+    this.allPhones = allPhone;
+    return this;
+  }
+
+  public ContactData withAllEmails(String allEmails) {
+    this.allEmails = allEmails;
+    return this;
+  }
+
+  public ContactData withEmail2(String email2) {
+    this.email2 = email2;
+    return this;
+  }
+
+
+  public ContactData withEmail3(String email3) {
+    this.email3 = email3;
+    return this;
+  }
+
   @Override
   public String toString() {
     return "ContactDate{" +
@@ -97,4 +161,6 @@ public class ContactData {
   public int hashCode() {
     return Objects.hash(id, firstname, lastname);
   }
+
+
 }

@@ -12,7 +12,7 @@ public class ContactCreationTests extends TestBase {
 
   @Test
   public void testContactCreation() throws Exception {
-    app.goTo().homePage();
+    app.goTo().gotoHomePage();
     Contacts before = app.contact().all();
     ContactData contact = new ContactData().withFirstname("Ivan").withLastname("Ivanov").
             withAddress("Moscow").withHomePhone("79099090099").withEmail("test1@mail.ru").withGroup("test1");
@@ -26,7 +26,7 @@ public class ContactCreationTests extends TestBase {
 
   @Test
   public void testBadContactCreation() throws Exception {
-    app.goTo().homePage();
+    app.goTo().gotoHomePage();
     Contacts before = app.contact().all();
     ContactData contact = new ContactData().withFirstname("Ivan'").withLastname("Ivanov").
             withAddress("Moscow").withHomePhone("79099090099").withEmail("test1@mail.ru").withGroup("test1");
